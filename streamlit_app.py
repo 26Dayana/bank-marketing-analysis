@@ -14,18 +14,20 @@ response = None
 
 ##### The App
 
-st.title('Bank Marketing Analysis and Modeling', anchor=None)
+st.title('Deposit Prediction for Bank Marketing', anchor=None)
 
-st.write("""
-    - [Exploratory Data Analysis](https://github.com/dendihandian/bank-marketing-analysis/blob/main/bank-marketing.ipynb)
-    - [Dataset](https://www.kaggle.com/datasets/dhirajnirne/bank-marketing)
+# Sidebar for EDA and Dataset
+st.sidebar.write("""
+    [Exploratory Data Analysis](https://github.com/Varshitha-Neelapu/Bank-Marketing/edit/main/Bank_Marketing_with_ML.ipynb)
+""")
+st.sidebar.write("""
+    [Dataset](https://archive.ics.uci.edu/static/public/222/bank+marketing.zip)
 """)
 
 with st.container():
 
     st.header('Response Predictor')
-
-
+    
     col1, col2 = st.columns(2)
 
     with col1:
@@ -57,8 +59,3 @@ with st.container():
     if response != None:
         st.metric('Response', response, delta=None, delta_color="normal")
 
-st.write("""__________""")
-
-with st.container():
-    st.header('Model Evaluation')
-    st.dataframe(metrics_result)
